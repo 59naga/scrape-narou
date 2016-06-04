@@ -91,7 +91,7 @@ API
  // }
  ```
 
-* `scrapeNarou.18(ncode[, page])` -> `Promise<result>`
+* `scrapeNarou.r18(ncode[, page])` -> `Promise<result>`
 
   `scrapeNarou`と同じですが、ダウンロード先を`http://novel18.syosetu.com/`に変更します。
   また、著者id`authorId`は`なろう小説18禁API`の`xid`に変わる点に注意して下さい（一般プロフィールで使われるidと別扱いです）。
