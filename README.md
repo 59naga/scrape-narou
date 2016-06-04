@@ -38,7 +38,7 @@ API
 
  * リクエストに使用した`uri`
  * 現在のページ番号`page`
- * 最終ページ番号`last`
+ * 最終ページ番号`count`
  * 著者名`author`
  * 著者id`authorId`
  * 小説タイトル`title`
