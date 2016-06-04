@@ -92,11 +92,12 @@ describe('scrapeNarou', () => {
 
       it('短編「いやだってお菓子あげたらついてくるっていうからさぁ！！」', async () => {
         const result = await scrapeNarou('n1354ck');
-        const { uri, author, authorId, series, title, content } = result;
+        const { uri, author, authorId, series, seriesId, title, content } = result;
         assert(uri === 'http://ncode.syosetu.com/n1354ck/');
         assert(author === '結木さんと');
         assert(authorId === '270309');
         assert(series === 'お菓子な世界より');
+        assert(seriesId === 's5859c');
         assert(title === 'いやだってお菓子あげたらついてくるっていうからさぁ！！');
         assert(content.match(/^<br>\n　混沌たる群集の中/)); // eslint-disable-line no-irregular-whitespace
         assert(content.match(/ほんとに覚えててくださいね。<br>\n<br>\n<br>\n<br>$/));
@@ -104,11 +105,12 @@ describe('scrapeNarou', () => {
 
       it('短編「生活魔術師達、ダンジョンに挑む」', async () => {
         const result = await scrapeNarou('n3117cu');
-        const { uri, author, authorId, series, title, content } = result;
+        const { uri, author, authorId, series, seriesId, title, content } = result;
         assert(uri === 'http://ncode.syosetu.com/n3117cu/');
         assert(author === '丘野　境界');
         assert(authorId === '232817');
         assert(series === '');
+        assert(seriesId === '');
         assert(title === '生活魔術師達、ダンジョンに挑む');
         assert(content.match(/^エムロード王立魔術学院/));
         assert(content.match(/向かったのだった。$/));

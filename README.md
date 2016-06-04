@@ -57,6 +57,7 @@ API
  を持ちます。短編の場合、上記の代わりに
 
  * 短編シリーズ名`series`
+ * 短編シリーズid`seriesId`
 
  を持ちます。`content`,`header`,`footer`,`ad`のhtmlは無害化せず、挿絵も削除しません。
 
@@ -86,6 +87,7 @@ API
  //   author: '結木さんと',
  //   authorId: '270309',
  //   series: 'お菓子な世界より',
+ //   seriesId: 's5859c',
  //   title: 'いやだってお菓子あげたらついてくるっていうからさぁ！！',
  //   content: '<br>\n　混沌たる群集の中から（中略）ほんとに覚えててくださいね。<br>\n<br>\n<br>\n<br>'
  // }

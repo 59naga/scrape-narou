@@ -74,6 +74,7 @@ export function extractShortstoryData(xml) {
   const author = $container.find('.novel_writername>a').text().trim();
   const authorId = getId($container.find('.novel_writername>a').attr('href'));
   const series = $container.find('.series_title>a').text().trim();
+  const seriesId = getId($container.find('.series_title>a').attr('href'));
   const title = $container.find('.novel_title').text().trim();
   const content = $container.find('#novel_honbun').html().trim();
 
@@ -81,6 +82,7 @@ export function extractShortstoryData(xml) {
     author,
     authorId,
     series,
+    seriesId,
     title,
     content,
   };
