@@ -9,7 +9,9 @@ env:
   mocha: true
 
 rules:
-  max-len: 1
+  max-len:
+    - 1
+    - 150
   arrow-body-style: 1
 
   complexity:

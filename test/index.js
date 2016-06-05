@@ -48,6 +48,27 @@ describe('scrapeNarou', () => {
         assert(prev === null);
       });
 
+      it('「無職転生」286P', async () => {
+        const result = await scrapeNarou('n9669bk', 286);
+        const { uri, page, count, author, authorId, title, chapter, subtitle, content, header, footer, ad, next, prev } = result;
+        assert(uri === 'http://ncode.syosetu.com/n9669bk/286/');
+        assert(page === 286);
+        assert(count === 286);
+        assert(author === '理不尽な孫の手');
+        assert(authorId === '288399');
+        assert(title === '無職転生　- 異世界行ったら本気だす -');
+        assert(chapter === '最終章　完結編');
+        assert(subtitle === 'エピローグ「プロローグ・ゼロ」');
+        assert(content.match(/^甲龍暦500年/));
+        assert(content.match(/まだ、誰にも分からない。$/));
+        assert(header === '');
+        assert(footer.match(/^<br>/));
+        assert(footer.match(/ご愛読、誠にありがとうございました。$/));
+        assert(ad === '');
+        assert(next === null);
+        assert(prev === 285);
+      });
+
       it('「エルフ転生からのチート建国記」1P', async () => {
         const result = await scrapeNarou('N5705CH', 1);
         const { uri, page, count, author, authorId, title, chapter, subtitle, content, header, footer, ad, next, prev } = result;
@@ -125,7 +146,7 @@ describe('scrapeNarou', () => {
         const { uri, page, count, author, authorId, title, chapter, subtitle, content, header, footer, ad, next, prev } = result;
         assert(uri === 'http://novel18.syosetu.com/n7663ct/1/');
         assert(page === 1);
-        assert(count === 338);
+        assert(count === 339);
         assert(author === '磯貝武連');
         assert(authorId === 'x8841n');
         assert(title === 'エルフの国の宮廷魔導師になれたので、とりあえず姫様に性的な悪戯をしてみました。');
@@ -207,7 +228,7 @@ describe('scrapeNarou', () => {
           extractExpectTocData(await scrapeNarou.tocR18('n7663ct')),
           {
             uri: 'http://novel18.syosetu.com/n7663ct/',
-            count: 338,
+            count: 339,
             author: '磯貝武連',
             authorId: 'x8841n',
             title: 'エルフの国の宮廷魔導師になれたので、とりあえず姫様に性的な悪戯をしてみました。',
@@ -218,10 +239,10 @@ describe('scrapeNarou', () => {
               updated: new Date('2016-01-25'),
             },
             last: {
-              page: 338,
-              subtitle: '魔導師、考える',
-              created: new Date('2016-06-03'),
-              updated: null,
+              page: 339,
+              subtitle: '女騎士と侍女、遊ぶ',
+              created: new Date('2016-06-04'),
+              updated: new Date('2016-06-04'),
             },
           },
         );

@@ -42,7 +42,10 @@ export function extractNovelData(xml) {
 
   const header = $container.find('#novel_p').html() || '';
   const footer = $container.find('#novel_a').html() || '';
-  const ad = $container.find('#novel_contents>.center').html() || '';
+
+  const $ad = $container.find('#novel_contents>.center');
+  $ad.find('.twitter-share-button, script').remove();
+  const ad = ($ad.html() || '').trim();
 
   const next = getPageNumber($container.find('.novel_bn :contains("次の話")').attr('href'));
   const prev = getPageNumber($container.find('.novel_bn :contains("前の話")').attr('href'));
