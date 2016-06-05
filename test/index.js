@@ -17,11 +17,12 @@ import scrapeNarou from '../src';
 
 // specs
 describe('scrapeNarou', () => {
+  it('存在しない小説はエラーページの解析結果を返すべき', async () => {
+    const error = await rejects(scrapeNarou('nothing'));
+    assert(error.message.match(/^http:\/\/ncode.syosetu.com\/nothing\/\nエラーが発生しました/));
+  });
+
   describe('scrapeNarou()', () => {
-    it('存在しない小説はエラーページの解析結果を返すべき', async () => {
-      const error = await rejects(scrapeNarou('nothing'));
-      assert(error.message.match(/^http:\/\/ncode.syosetu.com\/nothing\/\nエラーが発生しました/));
-    });
     it('長編の目次にアクセスした場合、エラーを返すべき', async () => {
       const error = await rejects(scrapeNarou('n9669bk'));
       assert(error.message === 'TOC can not extract');
@@ -113,7 +114,7 @@ describe('scrapeNarou', () => {
 
       it('短編「いやだってお菓子あげたらついてくるっていうからさぁ！！」', async () => {
         const result = await scrapeNarou('n1354ck');
-        const { uri, author, authorId, series, seriesId, title, content } = result;
+        const { uri, author, authorId, series, seriesId, title, content, header, footer, ad } = result;
         assert(uri === 'http://ncode.syosetu.com/n1354ck/');
         assert(author === '結木さんと');
         assert(authorId === '270309');
@@ -122,11 +123,14 @@ describe('scrapeNarou', () => {
         assert(title === 'いやだってお菓子あげたらついてくるっていうからさぁ！！');
         assert(content.match(/^<br>\n　混沌たる群集の中/)); // eslint-disable-line no-irregular-whitespace
         assert(content.match(/ほんとに覚えててくださいね。<br>\n<br>\n<br>\n<br>$/));
+        assert(header === '');
+        assert(footer === '');
+        assert(ad === '');
       });
 
       it('短編「生活魔術師達、ダンジョンに挑む」', async () => {
         const result = await scrapeNarou('n3117cu');
-        const { uri, author, authorId, series, seriesId, title, content } = result;
+        const { uri, author, authorId, series, seriesId, title, content, header, footer, ad } = result;
         assert(uri === 'http://ncode.syosetu.com/n3117cu/');
         assert(author === '丘野　境界');
         assert(authorId === '232817');
@@ -135,6 +139,9 @@ describe('scrapeNarou', () => {
         assert(title === '生活魔術師達、ダンジョンに挑む');
         assert(content.match(/^エムロード王立魔術学院/));
         assert(content.match(/向かったのだった。$/));
+        assert(header === '');
+        assert(footer === '');
+        assert(ad.match(/alphapolis.co.jp/));
       });
     });
   });
@@ -146,7 +153,7 @@ describe('scrapeNarou', () => {
         const { uri, page, count, author, authorId, title, chapter, subtitle, content, header, footer, ad, next, prev } = result;
         assert(uri === 'http://novel18.syosetu.com/n7663ct/1/');
         assert(page === 1);
-        assert(count === 339);
+        assert(count >= 340);
         assert(author === '磯貝武連');
         assert(authorId === 'x8841n');
         assert(title === 'エルフの国の宮廷魔導師になれたので、とりあえず姫様に性的な悪戯をしてみました。');
@@ -159,6 +166,22 @@ describe('scrapeNarou', () => {
         assert(ad === '');
         assert(next === 2);
         assert(prev === null);
+      });
+
+      it('短編「姫将軍の肖像」', async () => {
+        const result = await scrapeNarou.r18('N6823CH');
+        const { uri, author, authorId, series, seriesId, title, content, header, footer, ad } = result;
+        assert(uri === 'http://novel18.syosetu.com/N6823CH/');
+        assert(author === 'きー子');
+        assert(authorId === 'x8570b');
+        assert(series === '');
+        assert(seriesId === '');
+        assert(title === '姫将軍の肖像');
+        assert(content.match(/^「リントブルム辺境伯軍麾下へ/));
+        assert(content.match(/その少女時代の輝きがそこにあった。$/));
+        assert(header === '暗いです。<br>\nエロくないです。');
+        assert(footer === '');
+        assert(ad.match(/webclap.com/));
       });
     });
   });
@@ -228,7 +251,7 @@ describe('scrapeNarou', () => {
           extractExpectTocData(await scrapeNarou.tocR18('n7663ct')),
           {
             uri: 'http://novel18.syosetu.com/n7663ct/',
-            count: 339,
+            count: 340,
             author: '磯貝武連',
             authorId: 'x8841n',
             title: 'エルフの国の宮廷魔導師になれたので、とりあえず姫様に性的な悪戯をしてみました。',
@@ -239,10 +262,10 @@ describe('scrapeNarou', () => {
               updated: new Date('2016-01-25'),
             },
             last: {
-              page: 339,
-              subtitle: '女騎士と侍女、遊ぶ',
-              created: new Date('2016-06-04'),
-              updated: new Date('2016-06-04'),
+              page: 340,
+              subtitle: '女騎士と侍女、振り回される',
+              created: new Date('2016-06-05'),
+              updated: null,
             },
           },
         );

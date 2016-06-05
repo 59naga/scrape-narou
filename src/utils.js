@@ -81,6 +81,13 @@ export function extractShortstoryData(xml) {
   const title = $container.find('.novel_title').text().trim();
   const content = $container.find('#novel_honbun').html().trim();
 
+  const header = $container.find('#novel_p').html() || '';
+  const footer = $container.find('#novel_a').html() || '';
+
+  const $ad = $container.find('#novel_contents>.center');
+  $ad.find('.twitter-share-button, script').remove();
+  const ad = ($ad.html() || '').trim();
+
   return {
     author,
     authorId,
@@ -88,6 +95,9 @@ export function extractShortstoryData(xml) {
     seriesId,
     title,
     content,
+    header,
+    footer,
+    ad,
   };
 }
 
