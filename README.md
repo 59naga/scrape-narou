@@ -158,6 +158,7 @@ API
 関連するプロジェクト
 ---
 * [naroujs - NodeJS/ブラウザ用 なろう(小説/小説ランキング/殿堂入り/18禁小説)API JavaScriptラッパ](https://github.com/59naga/naroujs#readme)
+* [narou-middleware - Express4用 小説家になろう 非公式ミドルウェア](https://github.com/59naga/narou-middleware#readme)
 
 開発環境
 ---
