@@ -107,6 +107,7 @@ API
   * 著者名`author`
   * 著者id`authorId`
   * 小説タイトル`title`
+  * 小説あらすじ`content`
   * 章`chapters` または、章なし`episodes`
 
   を持ちます。`chapters`/`episodes`は複数の`episode`を持ち、この`episode`は
@@ -126,6 +127,7 @@ API
   //   "author": "理不尽な孫の手",
   //   "authorId": "288399",
   //   "title": "無職転生　- 異世界行ったら本気だす -",
+  //   "content": "３４歳職歴無し住所不定無職童貞のニートは、ある日家を追い出され、…",
   //   "count": 286,
   //   "chapters": [
   //     {
