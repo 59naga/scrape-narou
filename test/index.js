@@ -4,10 +4,10 @@ import { rejects } from 'assert-exception';
 
 // helper
 const extractExpectTocData = (result) => {
-  const { uri, count, author, authorId, title, chapters, episodes } = result;
+  const { uri, count, author, authorId, title, content, chapters, episodes } = result;
   const first = chapters.length ? chapters[0].episodes[0] : episodes[0];
   const last = chapters.length ? chapters.slice(-1)[0].episodes.slice(-1)[0] : episodes.slice(-1)[0];
-  return { uri, count, author, authorId, title, first, last };
+  return { uri, count, author, authorId, title, content, first, last };
 };
 
 // target
@@ -157,6 +157,7 @@ parallel('.toc() - 抽出した内容をオブジェクトで返すべき', () =
         author: '理不尽な孫の手',
         authorId: '288399',
         title: '無職転生　- 異世界行ったら本気だす -',
+        content: '３４歳職歴無し住所不定無職童貞のニートは、ある日家を追い出され、人生を後悔している間にトラックに轢かれて死んでしまう。目覚めた時、彼は赤ん坊になっていた。どうやら異世界に転生したらしい。<br>\n　彼は誓う、今度こそ本気だして後悔しない人生を送ると。<br>\n<br>\n【2015年4月3日23:00　完結しました】<br>\n<br>\n<br>\n<br>\n　完結後の番外編はこちらで連載中です。<br>\n　無職転生 - 蛇足編 -<br>\nhttp://ncode.syosetu.com/n4251cr/',
         first: {
           page: 1,
           subtitle: 'プロローグ',
@@ -182,6 +183,7 @@ parallel('.toc() - 抽出した内容をオブジェクトで返すべき', () =
         author: '月夜　涙（るい）',
         authorId: '509642',
         title: 'エルフ転生からのチート建国記',
+        content: '天才魔術師は、魔術を極めないまま死にゆく運命に抗うため、記憶を残して輪廻転生する魔術を作り上げた。輪廻転生を繰り返し、三十一周目の世界で魔術師はエルフの村に住む少年シリルとなる。しかし、その村は人間に支配され、エルフは家畜のように扱われていたのだった！<br>\n十四才になり、過去の経験と知識を取り戻したシリルは幼馴染の少女を助けるために立ち上がる。一つの村からはじまり、ありとあらゆる種族が共存する理想の国を作りあげる物語。<br>\n<br>\nモンスター大賞　最優秀賞受賞しました。2016/3/30に三巻発売決定',
         first: {
           page: 1,
           subtitle: 'プロローグ：輪廻の魔術師',
@@ -261,6 +263,7 @@ parallel('.tocR18 - 抽出した内容をオブジェクトで返すべき', () 
         author: '磯貝武連',
         authorId: 'x8841n',
         title: 'エルフの国の宮廷魔導師になれたので、とりあえず姫様に性的な悪戯をしてみました。',
+        content: 'キース・ブロックハウンドはしがない流浪の魔導師だったが、ひょんな事からエルフ領の小国で宮廷魔導師をする事になった。<br>\n姫君の魔術家庭教師も任された彼は、それにかこつけて世間知らずのエルフ姫に性的な悪戯を始めるのだった。<br>\n<br>\nエロは３話辺りからです。あとはただエロいだけです。<br>\n<br>\n書籍化しました。KTC様より発売中です。<br>\n漫画化が決定しました。',
         first: {
           page: 1,
           subtitle: '詐欺師からの大出世',

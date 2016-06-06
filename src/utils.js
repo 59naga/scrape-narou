@@ -130,12 +130,14 @@ export function extractTocData(xml) {
   const author = $container.find('.novel_writername>a').text().trim();
   const authorId = getId($container.find('.novel_writername>a').attr('href'));
   const title = $container.find('.novel_title').text().trim();
+  const content = $container.find('#novel_ex').html().trim();
   const count = chapters.length ? chapters[chapters.length - 1].episodes.slice(-1)[0].page : episodes.length;
 
   return {
     author,
     authorId,
     title,
+    content,
     count,
     chapters,
     episodes,
