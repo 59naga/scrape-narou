@@ -62,7 +62,7 @@ API
  を持ちます。`content`,`header`,`footer`,`ad`のhtmlは無害化せず、挿絵も削除しません。
 
  ```js
- import scrapeNarou from './';
+ import scrapeNarou from 'scrape-narou';
  scrapeNarou('n9669bk', 1).then(result => console.log(result));
  // {
  //   uri: 'http://ncode.syosetu.com/n9669bk/1/',
@@ -120,7 +120,7 @@ API
   を持ちます。
 
   ```js
-  import scrapeNarou from './';
+  import scrapeNarou from 'scrape-narou';
   scrapeNarou.toc('n9669bk').then(result => console.log(result));
   // {
   //   "uri": "http://ncode.syosetu.com/n9669bk/",
