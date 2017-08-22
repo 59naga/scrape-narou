@@ -10,13 +10,10 @@ export function getPageNumber(href = '') {
   }
   return null;
 }
-export function parseJapaneseDate(text = '') {
-  return new Date(text.trim().match(/\d+/g).join('-'));
-}
 export function extractEpisode($episode) {
   const $updated = $episode.find('.long_update span');
-  const created = parseJapaneseDate($episode.find('.long_update').contents().get(0).nodeValue);
-  const updated = $updated.length ? parseJapaneseDate($updated.attr('title').match(/(.*?) 改稿/)[1]) : null;
+  const created = new Date($episode.find('.long_update').contents().get(0).nodeValue);
+  const updated = $updated.length ? new Date($updated.attr('title').match(/(.*?) 改稿/)[1]) : null;
   return {
     page: getPageNumber($episode.find('.subtitle>a').attr('href')),
     subtitle: $episode.find('.subtitle').text().trim(),
