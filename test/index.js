@@ -73,7 +73,7 @@ parallel('scrapeNarou() - 抽出した内容をオブジェクトで返すべき
     const { uri, page, count, author, authorId, title, chapter, subtitle, content, header, footer, ad, next, prev } = result;
     assert(uri === 'http://ncode.syosetu.com/N5705CH/1/');
     assert(page === 1);
-    assert(count === 102);
+    assert(count === 105);
     assert(author === '月夜　涙（るい）');
     assert(authorId === '509642');
     assert(title === 'エルフ転生からのチート建国記');
@@ -81,10 +81,10 @@ parallel('scrapeNarou() - 抽出した内容をオブジェクトで返すべき
     assert(subtitle === 'プロローグ：輪廻の魔術師');
     assert(content.match(/^俺は屋敷に設置した/));
     assert(content.match(/運命の転生が始まる。<br>$/));
-    assert(header === '祝！　エルフ転生発売！　モンスター文庫から無事発売されました！');
+    assert(header === '祝！　エルフ転生発売！　モンスター文庫から無事発売されました！　最新刊の四巻は2016/7/30に発売したよ');
     assert(footer === '');
-    assert(ad.match(/^3\/30、三巻発売！/));
-    assert(ad.match(/↑をクリックで飛びます<\/font><br>$/));
+    assert(ad.match(/^宣伝！　新作始めました！/));
+    assert(ad.match(/自信作なので是非、読んでください！$/));
     assert(next === 2);
     assert(prev === null);
   });
