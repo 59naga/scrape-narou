@@ -47,8 +47,8 @@ export function extractNovelData(xml) {
   $ad.find('.twitter-share-button, script').remove();
   const ad = ($ad.html() || '').trim();
 
-  const next = getPageNumber($container.find('.novel_bn :contains("次の話")').attr('href'));
-  const prev = getPageNumber($container.find('.novel_bn :contains("前の話")').attr('href'));
+  const next = getPageNumber($container.find('.novel_bn :contains("次へ")').attr('href'));
+  const prev = getPageNumber($container.find('.novel_bn :contains("前へ")').attr('href'));
 
   return {
     page: Number(page),
