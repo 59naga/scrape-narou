@@ -22,3 +22,7 @@ rules:
   async-await/space-after-await: 2
 
   newline-per-chained-call: 1
+
+  no-irregular-whitespace:
+    - 1
+    - skipRegExps: true
