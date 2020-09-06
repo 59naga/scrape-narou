@@ -6,7 +6,7 @@ import { extractNovelData, extractShortstoryData, extractTocData } from './utils
 let scrapeNarou;
 const fetch = (uri) =>
   Promise.resolve()
-  .then(() => axios(uri, { headers: { Cookie: 'over18=yes' } }))
+  .then(() => axios(uri, { headers: { 'User-Agent': 'scrape-narou', Cookie: 'over18=yes' } }))
   .then(response => response.data)
   .catch(response => {
     const $ = cheerio.load(response.data);
