@@ -1,7 +1,7 @@
 {
   "name": "scrape-narou",
   "description": "a japanese novel sns syosetu.com unofficial scrape library",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "lib",
   "files": [
     "lib"
